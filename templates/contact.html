@@ -1,0 +1,61 @@
+{% extends 'layout.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+<div class="contact-container">
+    <h2>Contact Me</h2>
+
+    <!-- Contact Form -->
+    <div class="contact-form">
+        <h3>Send Me a Message</h3>
+        <form action="{{ url_for('contact') }}" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-links">
+        <h3>Find Me on Social Media</h3>
+        <div class="social-icons">
+            <a href="https://linkedin.com/in/elisha-adeniran-29966833b" target="_blank">
+                <img src="{{ url_for('static', filename='images/socials/linkedin.svg') }}" alt="LinkedIn">
+            </a>
+            <a href="https://https://github.com/Greenskrull" target="_blank">
+                <img src="{{ url_for('static', filename='images/socials/github.svg') }}" alt="GitHub">
+            </a>
+            <a href="https://https://www.instagram.com/greenskrull/" target="_blank">
+                <img src="{{ url_for('static', filename='images/socials/instagram.svg') }}" alt="Instagram">
+            </a>
+        </div>
+    </div>
+
+    <!-- vCard Section -->
+    <div class="vcard-section">
+        <h3>Save My Contact</h3>
+        <p>You can download my virtual card (vCard) or preview it below:</p>
+        <div class="vcard-preview glass">
+            <div class="vcard-logo">
+                <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Your Logo">
+            </div>
+            <p><strong>Name:</strong> Elisha Adeniran</p>
+            <p><strong>Title:</strong> Grey Hat Hacker</p>
+            <p><strong>Phone:</strong> +2349119230875</p>
+            <p><strong>Email:</strong> elishaadeniran05@gmail.com</p>
+            
+        </div>
+        <a href="{{ url_for('static', filename='files/my_vcard.vcf') }}" download>
+            <button>Download vCard</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

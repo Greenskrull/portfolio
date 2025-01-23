@@ -1,0 +1,177 @@
+{% extends 'layout.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<div class="home-container">
+    <!-- Welcome Section with Animation -->
+    <section class="welcome-section card">
+        <h2 class="fade-in">H3ll0 W3lc0me t0 my Cy6e7s3curity P0rtforl10</h2>
+        <p class="fade-in">
+            Explore my journey as a Grey Hat hacker, cybersecurity consultant, and passionate advocate for digital safety.
+            Let me show you how I utilize cutting-edge tools and techniques to safeguard digital environments.
+        </p>
+    </section>
+
+    <!-- Kali Linux Tools Showcase with Screenshots -->
+    <section class="kali-tools card">
+        <h3 class="slide-in">My Favorite Kali Linux Tools</h3>
+        <div class="tools-grid">
+            <div class="tool-card hover-scale">
+                <img src="{{ url_for('static', filename='images/msf.png') }}" alt="Metasploit">
+                <h4>Metasploit</h4>
+                <p class="tool-description">A powerful exploitation framework for penetration testing and vulnerability discovery.</p>
+                <img src="{{ url_for('static', filename='images/msfuse.png') }}" alt="Metasploit Usage" class="usage-screenshot">
+            </div>
+            <div class="tool-card hover-scale">
+                <img src="{{ url_for('static', filename='images/nmap.png') }}" alt="Nmap">
+                <h4>Nmap</h4>
+                <p class="tool-description">Network scanner for mapping out systems and identifying vulnerabilities.</p>
+                <img src="{{ url_for('static', filename='images/nmapuse.png') }}" alt="Nmap Usage" class="usage-screenshot">
+            </div>
+            <div class="tool-card hover-scale">
+                <img src="{{ url_for('static', filename='images/burp.png') }}" alt="Burp Suite">
+                <h4>Burp Suite</h4>
+                <p class="tool-description">An essential tool for web application security testing.</p>
+                <img src="{{ url_for('static', filename='images/burpuse.png') }}" alt="Burp Suite Usage" class="usage-screenshot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Embedded Interactive Content Section -->
+    <section class="myth-busting card">
+      <h3 class="zoom-in">Myths About Hackers: Debunked</h3>
+      <div class="myth-fact-container">
+          <!-- Myth 1 -->
+          <div class="myth-card hover-scale">
+              <h4><i class="fas fa-bolt"></i> Myth: All Hackers are Criminals</h4>
+              <p class="myth-description">
+                  Many people associate hackers with cybercrime. However, ethical hackers, or "white hats," work to protect systems and uncover vulnerabilities.
+              </p>
+          </div>
+          <!-- Myth 2 -->
+          <div class="myth-card hover-scale">
+              <h4><i class="fas fa-bolt"></i> Myth: Hackers Only Work Alone</h4>
+              <p class="myth-description">
+                  Contrary to popular belief, many hackers work in teams or collaborate in cybersecurity communities to tackle large-scale threats.
+              </p>
+          </div>
+          <!-- Myth 3 -->
+          <div class="myth-card hover-scale">
+              <h4><i class="fas fa-bolt"></i> Myth: Hackers Only Use Complex Code</h4>
+              <p class="myth-description">
+                  While advanced coding skills are helpful, many successful hacks rely on basic techniques like social engineering or exploiting common vulnerabilities.
+              </p>
+          </div>
+          <!-- Myth 4 -->
+          <div class="myth-card hover-scale">
+              <h4><i class="fas fa-bolt"></i> Myth: Hackers Don't Get Caught</h4>
+              <p class="myth-description">
+                  Many hackers are caught through digital forensics, monitoring, and tracking IP addresses. Law enforcement agencies and ethical hackers work together to bring criminals to justice.
+              </p>
+          </div>
+      </div>
+      <div class="cta-section">
+          <p>Want to learn more about cybersecurity and how ethical hacking works? <a href="{{ url_for('about') }}" class="btn btn-link">Read My Full Story</a></p>
+      </div>
+  </section>
+  
+
+    <!-- Skills & Project Overview with Icons -->
+    <section class="skills-projects card">
+        <h3 class="fade-in">My Skills & Notable Projects</h3>
+        <div class="skills-overview">
+            <div class="skills-card hover-scale">
+                <h4><i class="fas fa-shield-alt"></i> Penetration Testing</h4>
+                <p>Utilize tools like Metasploit, Burp Suite, and Nmap for real-world penetration testing.</p>
+            </div>
+            <div class="projects-card hover-scale">
+                <h4><i class="fas fa-code"></i> Projects: Web App Security</h4>
+                <p>Worked on lugz footware Company to perform security assessments on their web applications, Which is extremely Vulnerable</p>
+                <a href="https://github.com/yourusername/project1" target="_blank" class="btn btn-link">View Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section with Icons -->
+    <section class="certifications card">
+        <h3 class="fade-in">My Certifications</h3>
+        <ul class="certification-list">
+            <li><i class="fas fa-certificate"></i> OSCP (Offensive Security Certified Professional)</li>
+            <li><i class="fas fa-certificate"></i> CEH (Certified Ethical Hacker)</li>
+            <li><i class="fas fa-certificate"></i> CompTIA Security+</li>
+            <li><i class="fas fa-certificate"></i> CISSP (Certified Information Systems Security Professional)</li>
+        </ul>
+    </section>
+    <!-- AI Chatbot Section -->
+<section class="chatbot-container">
+  <div id="chatbot-box">
+      <div class="chatbot-header">
+          <h4>AI Chatbot</h4>
+          <button id="chatbot-toggle" onclick="toggleChatbot()">X</button>
+      </div>
+      <div class="chatbot-messages" id="chatbot-messages">
+          <p class="chatbot-message bot-message">Hello! I'm your AI assistant. How can I help you today?</p>
+      </div>
+      <input type="text" id="user-input" placeholder="Type your message..." onkeydown="handleUserInput(event)">
+      <button onclick="sendMessage()">Send</button>
+  </div>
+</section>
+
+
+    <!-- Call to Action Section with Download Resume Button -->
+    <section class="cta-section card">
+        <h3 class="zoom-in">Interested in working together?</h3>
+        <a href="{{ url_for('static', filename='files/resume.pdf') }}" class="download-button" download>
+            <button class="btn-primary">Download My Resume</button>
+        </a>
+    </section>
+</div>
+<script>
+  // Toggle the chatbot visibility
+function toggleChatbot() {
+    const chatbot = document.getElementById("chatbot-box");
+    chatbot.style.display = (chatbot.style.display === "none" || chatbot.style.display === "") ? "flex" : "none";
+}
+
+// Handle user input and send message
+function handleUserInput(event) {
+    if (event.key === "Enter") {
+        sendMessage();
+    }
+}
+
+function sendMessage() {
+    const userInput = document.getElementById("user-input").value;
+    if (userInput.trim() === "") return;
+
+    // Add user message
+    const messages = document.getElementById("chatbot-messages");
+    messages.innerHTML += `<p class="chatbot-message user-message">${userInput}</p>`;
+
+    // Simple AI response (you can expand this logic)
+    setTimeout(() => {
+        const botResponse = getBotResponse(userInput);
+        messages.innerHTML += `<p class="chatbot-message bot-message">${botResponse}</p>`;
+        messages.scrollTop = messages.scrollHeight;  // Scroll to the bottom
+    }, 1000);
+
+    document.getElementById("user-input").value = "";  // Clear input field
+}
+
+// Simple AI response function (expand as needed)
+function getBotResponse(input) {
+    const lowerInput = input.toLowerCase();
+    if (lowerInput.includes("projects")) {
+        return "You can explore my projects on my GitHub: [GitHub Link].";
+    } else if (lowerInput.includes("skills")) {
+        return "I specialize in penetration testing, network security, and ethical hacking.";
+    } else if (lowerInput.includes("myths")) {
+        return "Hackers are not always criminals. Ethical hackers help secure systems.";
+    } else {
+        return "I’m here to help! How else can I assist you?";
+    }
+}
+
+</script>
+{% endblock %}

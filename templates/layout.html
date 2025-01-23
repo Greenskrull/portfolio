@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Portfolio{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="{% if session.theme == 'dark' %}dark-mode{% else %}light-mode{% endif %}">
+    <header class="glass-navbar">
+        <div class="vcard-logo">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Your Logo">
+        </div>
+        <nav class="nav-links">
+            <a href="{{ url_for('index') }}">Home</a>
+            <a href="{{ url_for('projects') }}">Projects</a>
+            <a href="{{ url_for('about') }}">About</a>
+            <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+        <form action="{{ url_for('toggle_theme') }}" method="POST" style="display:inline;">
+            <button type="submit" class="theme-toggle">
+                {% if session.theme == 'dark' %}
+                🌞
+                {% else %}
+                🌙
+                {% endif %}
+            </button>
+        </form>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+</body>
+</html>

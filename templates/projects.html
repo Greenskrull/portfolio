@@ -1,0 +1,65 @@
+{% extends 'layout.html' %}
+
+{% block title %}Projects{% endblock %}
+
+{% block content %}
+<div class="projects-container">
+    <h2>My Projects</h2>
+    <ul>
+        {% for project in projects %}
+        <li class="project-card">
+            <h3>{{ project.title }}</h3>
+            <p class="project-description">{{ project.description }}</p>
+            <div class="card-content">
+                
+                <!-- Code Snippet Section -->
+                <section id="code-snippet" class="snippet-section">
+                    <h3 class="snippet-title">Highlighted Project Code Snippet</h3>
+                    <p class="snippet-description">
+                        Explore a core Python script from the project showcasing its functionality:
+                    </p>
+                    <div class="snippet-container">
+                        <pre>
+                            <code class="language-python">
+                                {{ project.code_snippet | safe }}
+                            </code>
+                        </pre>
+                    </div>
+                    <div class="snippet-buttons">
+                        <a href="{{ url_for('static', filename='scripts/' + project.title | replace(' ', '_') + '.py') }}" download class="btn-download">Download Full Script</a>
+                        <button class="btn-copy" onclick="copyCodeSnippet()">Copy Code</button>
+                    </div>
+                </section>
+                
+                <!-- Project Image -->
+                {% if project.image %}
+                <div class="image-container">
+                    <img src="{{ url_for('static', filename='images/' + project.image) }}" alt="Project Output">
+                </div>
+                {% endif %}
+                
+            </div>
+
+            <!-- View Project Link -->
+            {% if project.link %}
+            <a href="{{ project.link }}" target="_blank" class="project-link">View Project</a>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+<script>
+  // Function to copy code snippet
+  function copyCodeSnippet() {
+      const code = document.querySelector(".snippet-container pre code").innerText;
+      navigator.clipboard.writeText(code).then(() => {
+          alert("Code copied to clipboard!");
+      }).catch(err => {
+          alert("Failed to copy code: " + err);
+      });
+  }
+  
+</script>
+
+{% endblock %}

@@ -1,0 +1,102 @@
+{% extends 'layout.html' %}
+
+{% block title %}About{% endblock %}
+
+{% block content %}
+<div class="about-container">
+    <h2>About Me</h2>
+    
+    <div class="about-content">
+        <!-- Logo and Name Section -->
+        <div class="about-logo card">
+            <img src="{{ url_for('static', filename='images/logo.jpeg') }}" alt="Your Logo">
+        </div>
+
+        <div class="about-description card">
+            <h3>Hello! Elisha Adeniran</h3>
+            <p class="animated-text">
+                I'm a passionate cybersecurity professional with expertise in ethical hacking, vulnerability assessment, and penetration testing. I specialize in securing digital assets and preventing cyber threats using cutting-edge tools and techniques. My goal is to help individuals and organizations stay safe from cyberattacks and data breaches.
+            </p>
+            <p class="animated-text">
+                Over the years, I've worked with various organizations to identify and patch security vulnerabilities in their systems. My knowledge of both offensive and defensive security ensures I can evaluate security posture from multiple angles.
+            </p>
+            <p class="animated-text">
+                When I'm not working on security-related projects, I love sharing my insights through blogs, tutorials, and talks. I'm always open to collaborating on new projects and enhancing my skills in the ever-evolving field of cybersecurity.
+            </p>
+        </div>
+    </div>
+
+    <!-- Personal Details Section -->
+    <div class="personal-details card">
+        <h3>Personal Details</h3>
+        <ul>
+            <li><strong>Name:</strong> Elisha Adeniran</li>
+            <li><strong>Location:</strong> Lagos, Nigeria</li>
+            <li><strong>Role:</strong> Ethical Hacker / Cybersecurity Consultant</li>
+            <li><strong>Email:</strong> elishaadeniran05@gmail.com</li>
+            <li><strong>Phone:</strong> +2349119230875</li>
+        </ul>
+    </div>
+
+    <!-- Skills Section -->
+    <div class="skills-section card">
+        <h3>Skills & Expertise</h3>
+        <ul>
+            <li class="skill-item">Penetration Testing (Tools: Kali Linux, Metasploit, Burp Suite)</li>
+            <li class="skill-item">Vulnerability Assessment & Risk Management</li>
+            <li class="skill-item">Network Security & Firewalls</li>
+            <li class="skill-item">Web Application Security</li>
+            <li class="skill-item">Cloud Security (AWS, Azure)</li>
+            <li class="skill-item">Programming (Python, Bash, JavaScript)</li>
+        </ul>
+    </div>
+
+    <!-- Certifications Section -->
+    <div class="certifications-section card">
+        <h3>Certifications</h3>
+        <ul>
+            <li class="certification-item">OSCP (Offensive Security Certified Professional)</li>
+            <li class="certification-item">CEH (Certified Ethical Hacker)</li>
+            <li class="certification-item">CompTIA Security+</li>
+            <li class="certification-item">CISSP (Certified Information Systems Security Professional)</li>
+        </ul>
+    </div>
+
+    <!-- Hobbies & Interests Section -->
+    <div class="hobbies-section card">
+        <h3>Hobbies & Interests</h3>
+        <p>
+            Aside from my passion for cybersecurity, I enjoy Engineering , playing chess, and exploring new technologies. I'm also an avid gamer and enjoy solving complex problems in games like CTF (Capture The Flag).
+        </p>
+    </div>
+
+    <!-- Notable Projects Section -->
+    <div class="projects-section card">
+        <h3>Notable Projects</h3>
+        <ul>
+            <li class="project-item">
+                <strong>WooDeath:</strong> Discover vulnerabilities in WordPress WooCommerce sites with this script. Designed for educational purposes to highlight risks in e-commerce platforms.
+            </li>
+            <li class="project-item">
+                <strong>BASH_FOR_A11:</strong> This Bash script is an advanced web penetration testing tool designed for Kali Linux, offering automated workflows for tasks like network scanning (Nmap), SQL injection testing (SQLMap), web application scanning (Wapiti), and exploitation (Metasploit). It also supports simulated ransomware encryption and DDoS attacks while logging results in a structured format. The script features a menu-driven interface, ensures dependencies are installed, and saves outputs for post-assessment review.
+            </li>
+        </ul>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials-section card">
+        <h3>What Others Say</h3>
+        <blockquote>
+            "Your Name is a brilliant cybersecurity professional who helped our company identify critical vulnerabilities and patch them quickly. Highly recommended!" 
+            <footer>- Mr. Femi Gbajamila, CTO of Stardom.co</footer>
+        </blockquote>
+    </div>
+
+    <!-- Download Resume Button -->
+    <div class="download-section">
+        <a href="{{ url_for('static', filename='files/your_resume.pdf') }}" class="download-button" download>
+            <button>Download Resume</button>
+        </a>
+    </div>
+</div>
+{% endblock %}
