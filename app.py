@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import sqlite3
+import os
 
 app = Flask(__name__)
 app.config['DATABASE'] = 'instance/projects.db'
@@ -51,5 +52,7 @@ def toggle_theme():
     session['theme'] = 'dark' if current_theme == 'light' else 'light'
     return redirect(request.referrer or url_for('index'))
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT is not set
+    app.run(debug=True, host="0.0.0.0", port=port)
+
